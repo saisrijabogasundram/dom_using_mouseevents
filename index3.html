@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Practice Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            cursor: pointer;
+        }
+
+        #image {
+            width: 250px;
+            height: auto;
+            transition: 0.3s;
+        }
+
+        #mousePos {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input:focus {
+            border: 2px solid blue;
+        }
+
+        .focused {
+            background: #e3f2fd;
+        }
+
+        .changed {
+            border: 2px solid green;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid gray;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="heading">Event Page</h1>
+    <p id="para">This is a paragraph. Double-click me!</p>
+
+    <img id="image" src="data:image/png;base64,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" alt="Sample">
+
+    <div id="mousePos">Mouse Position: X=0 | Y=0</div>
+
+    <br><br>
+
+    <input type="text" id="inputBox" placeholder="Type here">
+    <button id="btn">Click Me</button>
+    <p id="keyDisplay"></p>
+
+    <h3>Form Section</h3>
+    <form id="myForm">
+        <label>Name:</label>
+        <input type="text" id="nameInput"><br><br>
+
+        <label>Email:</label>
+        <input type="email" id="emailInput"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="formMessage"></p>
+
+    <script src="script4.js"></script>
+
+</body>
+</html>
